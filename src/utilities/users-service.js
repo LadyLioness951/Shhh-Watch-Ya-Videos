@@ -14,6 +14,20 @@ export async function signUp(userData) {
   }
 }
 
+export async function login(credentials) {
+  try {
+    const token = await usersAPI.login(credentials);
+    localStorage.setItem('token', token);
+    return getUser();
+  } catch {
+    throw new Error('Invalid Login');
+  }
+}
+
+export function logOut() {
+  localStorage.removeItem('token');
+}
+
 export function getToken() {
   // getItem returns null if there's no string
   const token = localStorage.getItem('token');
@@ -41,16 +55,5 @@ export function getUser() {
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
 
-export function logOut() {
-  localStorage.removeItem('token');
-}
 
-export async function login(credentials) {
-  try {
-    const token = await usersAPI.login(credentials);
-    localStorage.setItem('token', token);
-    return getUser();
-  } catch {
-    throw new Error('Invalid Login');
-  }
-}
+
