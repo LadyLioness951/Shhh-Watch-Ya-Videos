@@ -20,6 +20,7 @@ const Hashtag = require('./models/hashtag');
         {name: 'Goofy'},
         {name: 'Pranks'},
         {name: 'Sports'},
+        {name: 'Other'}
     ]);
 
     await Hashtag.deleteMany({});

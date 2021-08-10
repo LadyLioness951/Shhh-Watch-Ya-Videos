@@ -18,7 +18,8 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
-  }
+  },
+  categories: [{type: Schema.Types.ObjectId, ref: 'Category'}]
 }, {
   timestamps: true,
   // Even though it's hashed - don't serialize the password

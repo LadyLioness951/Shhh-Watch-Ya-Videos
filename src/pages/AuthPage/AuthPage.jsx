@@ -11,7 +11,8 @@ export default function AuthPage({ setUser }) {
     email: '',
     password: '',
     confirm: '',
-    error: ''
+    error: '',
+    categories: ''
   })
 
   function handleChange(evt) {
