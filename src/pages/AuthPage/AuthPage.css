@@ -1,4 +1,9 @@
-* {
-    background-image: url('https://giphy.com/gifs/tasty-mmmm-3IJEzhhXuzTB6');
-    background-color: cyan;
+
+body {
+    background-image: url('https://media.giphy.com/media/f7YIDPhBly8Frf6eN1/giphy.gif');
+    background-color: yellow;
+    height: 125vh;
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
 }

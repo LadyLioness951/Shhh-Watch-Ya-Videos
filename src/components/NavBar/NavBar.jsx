@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import Logo from '../Logo/Logo';
 
 // Not destructuring props this time
 export default function NavBar({user, setUser}) {
@@ -22,6 +23,7 @@ export default function NavBar({user, setUser}) {
           &nbsp;&nbsp;<Link onClick={handleLogOut} to="">Log Out</Link>
         </>  
       }
+      <Logo />
     </nav>
   );
 }
