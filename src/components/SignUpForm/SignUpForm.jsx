@@ -1,4 +1,4 @@
-export default function SignUpForm({ formData, handleChange }) {
+export default function SignUpForm({ formData, handleChange, setShowCategory }) {
 
   // Must override the render method
   // The render method takes the place of 
@@ -8,7 +8,7 @@ export default function SignUpForm({ formData, handleChange }) {
   return (
     <div>
       <div className="form-container">
-        <form autoComplete="off">
+        <form onSubmit={() => setShowCategory(true)} autoComplete="off">
           <label>Name</label>
           <input type="text" name="name" value={formData.name} onChange={handleChange} required />
           <label>Email</label>

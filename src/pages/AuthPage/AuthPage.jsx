@@ -12,11 +12,21 @@ export default function AuthPage({ setUser }) {
     password: '',
     confirm: '',
     error: '',
-    categories: ''
+    categories: []
   })
 
   function handleChange(evt) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value})
+  }
+
+  function handleCheckbox(evt) {
+    let catCopy = [...formData.categories];
+    if (catCopy.includes(evt.target.name)) {
+      catCopy.splice(catCopy.indexOf(evt.target.name), 1);
+    } else {
+      catCopy.push(evt.target.name);
+    };
+    setFormData({...formData, categories: catCopy});
   }
 
   async function handleSubmit(evt) {
@@ -41,10 +51,10 @@ export default function AuthPage({ setUser }) {
 
   return (
     <main className="auth">
-      {showCategory ? (
-        <SignUpForm formData={formData} handleChange={handleChange} /> 
+      {!showCategory ? (
+        <SignUpForm formData={formData} handleChange={handleChange} setShowCategory={setShowCategory} /> 
       ) : (
-        <CategoryList />
+        <CategoryList handleCheckbox={handleCheckbox} handleSubmit={handleSubmit} />
       )}
     </main>
   );
