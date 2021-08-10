@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// import { useHistory } from 'react-router-dom';
 import { signUp } from '../../utilities/users-service';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import CategoryList from '../../components/CategoryList/CategoryList';
@@ -14,6 +15,8 @@ export default function AuthPage({ setUser }) {
     error: '',
     categories: []
   })
+
+  // const history = useHistory();
 
   function handleChange(evt) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value})
@@ -41,6 +44,7 @@ export default function AuthPage({ setUser }) {
       // will resolve to the user object included in the
       // payload of the JSON Web Token
       const user = await signUp(newFormData);
+      console.log(user);
       await setUser(user);
       // history.push('/')
     } catch {

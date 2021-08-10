@@ -1,4 +1,5 @@
 .Logo {
+  margin: 0;
   height: 2vmin;
   width: 15vmin;
   display: flex;

@@ -18,10 +18,13 @@ export default function NavBar({user, setUser}) {
           <Link to="/signup">Sign Up</Link>
         </>  
       :
-        <>  
+        <div className="upout">  
+          {/* <label htmlFor="search"></label>
+          <input type="text" value={} onChange={} /> */}
           &nbsp;&nbsp;<span>Welcome, {user.name}</span>
+          &nbsp;&nbsp;<Link to="/upload">Upload</Link>
           &nbsp;&nbsp;<Link onClick={handleLogOut} to="">Log Out</Link>
-        </>  
+        </div>  
       }
       <Logo />
     </nav>

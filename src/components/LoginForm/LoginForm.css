@@ -1,0 +1,8 @@
+.log {
+    background-image: url('https://media.giphy.com/media/L1QTSCW1S7qutb2XCD/giphy.gif');
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}

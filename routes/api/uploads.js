@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const photosCtrl = require('../../controllers/api/videos');
+const uploadsCtrl = require('../../controllers/api/uploads');
 
-router.post('/', photosCtrl.create);
+router.post('/', uploadsCtrl.create);
 
