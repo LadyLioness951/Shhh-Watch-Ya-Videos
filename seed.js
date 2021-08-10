@@ -22,8 +22,8 @@ const Hashtag = require('./models/hashtag');
         {name: 'Sports'},
     ]);
 
-    await hashtag.deleteMany({});
-    const hashtags = await hashtag.create([
+    await Hashtag.deleteMany({});
+    const hashtags = await Hashtag.create([
         {name: '#blessed'},
         {name: '#gaming'},
         {name: '#goals'},
