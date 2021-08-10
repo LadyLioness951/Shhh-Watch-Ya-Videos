@@ -1,0 +1,12 @@
+.home {
+    background-image: url(https://media.giphy.com/media/XU0p8JABAr1rG/giphy.gif);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+h1, p {
+    color: palegreen;
+}
