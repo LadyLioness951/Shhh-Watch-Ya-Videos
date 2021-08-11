@@ -6,7 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import Home from '../Home/Home'
 import LoginForm from '../../components/LoginForm/LoginForm';
 import NavBar from '../../components/NavBar/NavBar';
-import VideoCard from '../../components/VideoCard/VideoCard';
+import UploadCard from '../../components/UploadCard/UploadCard';
 import './App.css';
 
 export default function App() {
@@ -59,8 +59,8 @@ export default function App() {
         <input value={title} onChange={(evt) => setTitle(evt.target.value)} placeholder="Video Title" />
         <button onClick={handleUpload}>Upload Video</button>
       </section>
-      <section>
-        {uploads.map(v => <VideoCard upload={v} key={v._id} />)}
+      <section className="flex-ctr-ctr">
+        {uploads.map(v => <UploadCard upload={v} key={v._id} />)}
       </section>
     </main>
   );

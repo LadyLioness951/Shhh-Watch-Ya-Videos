@@ -22,7 +22,7 @@ async function upload(req, res) {
         url: uploadURL,
         // As usual, other inputs sent with the file are available on req.body
         title: req.body.title,
-        // isVideo: req.file.mimetype.startsWith('video');
+        isVideo: req.file.mimetype.startsWith('video')
       });
       res.json(uploadDoc);
     } else {

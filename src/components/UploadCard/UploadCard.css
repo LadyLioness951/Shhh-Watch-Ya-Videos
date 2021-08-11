@@ -1,0 +1,15 @@
+.UploadCard {
+    width: 70vw;
+}
+
+.UploadCard > img, .UploadCard > video {
+    width: 100%;
+}
+
+.UploadCard div {
+    font-size: medium;
+    background-color: purple;
+    color: whitesmoke;
+    width: 100%;
+    padding: 2vmin;
+}

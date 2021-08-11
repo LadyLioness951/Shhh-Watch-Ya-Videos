@@ -1,3 +1,13 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.flex-ctr-ctr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* CSS Custom Properties */
 /* :root {
   --white: #010106;
@@ -10,9 +20,6 @@
   --text-dark: #0606f0;
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
-}
 
 body {
   margin: 0;

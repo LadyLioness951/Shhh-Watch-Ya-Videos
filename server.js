@@ -26,8 +26,9 @@ app.use(require('./config/checkToken'));
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/categories', require('./routes/api/categories'));
-app.use('/api/hashtags', require('./routes/api/hashtags'));
-app.use('/api/uploads', require('./routes/api/uploads'));
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/hashtags', ensureLoggedIn, require('./routes/api/hashtags'));
+app.use('/api/uploads', ensureLoggedIn, require('./routes/api/uploads'));
 
 // The following "catch all" route (note the *) 
 // is necessary to return the index.html on ALL
