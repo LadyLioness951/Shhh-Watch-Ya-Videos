@@ -27,6 +27,7 @@ app.use(require('./config/checkToken'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/categories', require('./routes/api/categories'));
 app.use('/api/hashtags', require('./routes/api/hashtags'));
+app.use('/api/uploads', require('./routes/api/uploads'));
 
 // The following "catch all" route (note the *) 
 // is necessary to return the index.html on ALL
