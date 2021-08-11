@@ -19,7 +19,7 @@ module.exports = async function(file) {
   const s3Params = {
     Bucket: S3_BUCKET,
     // Create a unique filename to use as the S3 Key
-    Key: `${Date.now()}-${file.originalname}`,
+    Key: `${Date.now()}-${file.originalname}`.replaceAll(' ', ''),
     // The uploaded file's binary content is held in the buffer property
     Body: file.buffer
   };

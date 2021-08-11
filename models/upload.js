@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const uploadSchema = new Schema({
   url: {type: String, required: true},
-  title: String
+  title: String,
+  // isVideo: {type: Boolean, type: true},
 }, {
   timestamps: true,
 });
