@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-import AboutPage from '../AboutPage/AboutPage'
+import AboutPage from '../AboutPage/AboutPage';
+import HomePage from '../HomePage/HomePage';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import NavBar from '../../components/NavBar/NavBar';
 import ProfilePage from '../ProfilePage/ProfilePage';
@@ -24,7 +25,10 @@ export default function App() {
         <Route exact path="/">
           <AboutPage />
         </Route>
-        <Route>
+        <Route path="/home">
+          <HomePage />
+        </Route>
+        <Route path="/profile">
           <ProfilePage />
         </Route>
         <Redirect to="/" />

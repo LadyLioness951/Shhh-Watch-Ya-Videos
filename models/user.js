@@ -19,6 +19,7 @@ const userSchema = new Schema({
     minLength: 3,
     required: true
   },
+  profilepic: String,
   categories: [{type: Schema.Types.ObjectId, ref: 'Category'}]
 }, {
   timestamps: true,

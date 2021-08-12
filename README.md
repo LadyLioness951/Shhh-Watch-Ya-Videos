@@ -4,7 +4,11 @@ This app is a place you can upload your videos or watch other peoples videos. Yo
 
 ## Screenshots
 
-![Sign Up]()
+![About](https://i.imgur.com/Ge9rJyQ.png)
+![Sign Up](https://i.imgur.com/FnES4X5.png)
+![Sign Up 2](https://i.imgur.com/N12Q0SI.png)
+![Login](https://i.imgur.com/QJwr6xG.png)
+![Home]()
 ![Profile]()
 
 ## Technologies Used 
@@ -19,10 +23,13 @@ This app is a place you can upload your videos or watch other peoples videos. Yo
 
 ## Getting Started
 [Trello Board Link](https://trello.com/b/icVXsHZF/%F0%9F%A4%AB-watch-yo-%F0%9F%A4%AD)
-[🤫  Watch Ya 🤭 Link]()
+[🤫  Watch Ya 🤭 Link](https://shhh-watch-ya-videos.herokuapp.com/)
 
 ## Next Steps
 
 * Have a preference background color option available
 * Easy integration with other platforms
 * Add mini-games
+* Add bio to profile
+* Add profile picture
+* Add instant messages

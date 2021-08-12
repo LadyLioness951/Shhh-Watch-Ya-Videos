@@ -5,13 +5,8 @@ module.exports = {
 }
 
 async function create(req, res) {
-    Like.findOne({'user': req.user._id}, function(err, like) {
-        if (like) return res.redirect(`/profile/${req.params.id}`);
-        req.body.user = req.user._id;
-        req.body.profile = req.params.id;
-        Like.create(req.body, function(err, like) {
-            if (err) console.log(err);
-            res.redirect(`/profile/${req.params.id}`);
-        })
-    })
+    let like = await Like.findOne({user: req.user._id, upload: req.params.id});
+    if (like) return res.json('already liked');
+    like = await Like.create({user: req.user._id, upload: req.params.id});
+    res.json(like);
 }

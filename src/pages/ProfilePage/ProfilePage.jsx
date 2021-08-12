@@ -6,12 +6,6 @@ import { Link } from 'react-router-dom';
 export default function Profile() {
     const [title, setTitle] = useState('');
     const [uploads, setUploads] = useState([]);
-    // const [favorite, setFavorite] = useState([
-    //    {name: Videos},
-    //    {name: Sounds},
-    //    {name: Effects},
-    //    {name: Hashtags}, 
-    // ]);
     // Use a ref prop on the <input> in the JSX to
     // create a reference to the <input>, i.e.,
     // inputRef.current will be the <input> DOM element
@@ -22,10 +16,6 @@ export default function Profile() {
     useEffect(function() {
       uploadsAPI.getAll().then(uploads => setUploads(uploads));
     }, []);
-
-    // function addFavorite(favorite) {
-    //     setFavorite([...favorites, favorite]);
-    // }
   
     /*--- Event Handlers ---*/
   
