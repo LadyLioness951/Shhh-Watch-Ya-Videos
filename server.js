@@ -28,7 +28,8 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/categories', require('./routes/api/categories'));
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/hashtags', ensureLoggedIn, require('./routes/api/hashtags'));
-app.use('/api/uploads', ensureLoggedIn, require('./routes/api/uploads'));
+app.use('/api/uploads', require('./routes/api/uploads'));
+app.use('/api/profiles', require('./routes/api/profiles'));
 
 // The following "catch all" route (note the *) 
 // is necessary to return the index.html on ALL

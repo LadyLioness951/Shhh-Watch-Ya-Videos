@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const upload = require("multer")();
 const uploadsCtrl = require('../../controllers/api/uploads');
-
+// const ensureLoggedIn = require('./config/ensureLoggedIn');
 
 // GET /api/photos
 router.get('/', uploadsCtrl.index);
