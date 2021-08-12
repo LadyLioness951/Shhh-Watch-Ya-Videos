@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-import Home from '../Home/Home'
+import AboutPage from '../AboutPage/AboutPage'
 import LoginForm from '../../components/LoginForm/LoginForm';
 import NavBar from '../../components/NavBar/NavBar';
+import ProfilePage from '../ProfilePage/ProfilePage';
 import './App.css';
 
 export default function App() {
@@ -21,7 +22,10 @@ export default function App() {
           <LoginForm setUser={setUser} />
         </Route>
         <Route exact path="/">
-          <Home />
+          <AboutPage />
+        </Route>
+        <Route>
+          <ProfilePage />
         </Route>
         <Redirect to="/" />
       </Switch>

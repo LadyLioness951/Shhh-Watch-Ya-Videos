@@ -1,11 +1,17 @@
 import * as uploadsAPI from '../../utilities/uploads-api';
 import { useState, useEffect, useRef } from 'react';
 import UploadCard from '../../components/UploadCard/UploadCard';
-
+import { Link } from 'react-router-dom';
 
 export default function Profile() {
     const [title, setTitle] = useState('');
     const [uploads, setUploads] = useState([]);
+    // const [favorite, setFavorite] = useState([
+    //    {name: Videos},
+    //    {name: Sounds},
+    //    {name: Effects},
+    //    {name: Hashtags}, 
+    // ]);
     // Use a ref prop on the <input> in the JSX to
     // create a reference to the <input>, i.e.,
     // inputRef.current will be the <input> DOM element
@@ -16,6 +22,10 @@ export default function Profile() {
     useEffect(function() {
       uploadsAPI.getAll().then(uploads => setUploads(uploads));
     }, []);
+
+    // function addFavorite(favorite) {
+    //     setFavorite([...favorites, favorite]);
+    // }
   
     /*--- Event Handlers ---*/
   
@@ -39,10 +49,10 @@ export default function Profile() {
             <Link>Followers</Link>
             <Link>Likes</Link>
             <button>Edit Profile</button>
-            <button><i class="fas fa-bookmark"></i></button>
+            <button><i className="fas fa-bookmark"></i></button>
             <Link>Add Bio</Link>
-            <li><i class="fas fa-film"></i></li>
-            <li><i class="fas fa-star"></i></li>
+            <li><i className="fas fa-film"></i></li>
+            <li><i className="fas fa-star"></i></li>
             <section className="flex-ctr-ctr">
                 <input type="file" ref={fileInputRef} />
                 <input value={title} onChange={(evt) => setTitle(evt.target.value)} placeholder="Video Title" />
