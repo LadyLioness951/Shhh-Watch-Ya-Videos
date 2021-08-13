@@ -7,6 +7,7 @@ import HomePage from '../HomePage/HomePage';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import NavBar from '../../components/NavBar/NavBar';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import UploadPage from '../UploadPage/UploadPage';
 import './App.css';
 
 export default function App() {
@@ -30,6 +31,9 @@ export default function App() {
         </Route>
         <Route path="/profile">
           <ProfilePage />
+        </Route>
+        <Route path="/upload">
+          <UploadPage />
         </Route>
         <Redirect to="/" />
       </Switch>

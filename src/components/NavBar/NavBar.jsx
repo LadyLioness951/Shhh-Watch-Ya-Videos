@@ -22,8 +22,9 @@ export default function NavBar({user, setUser}) {
           {/* <label htmlFor="search"></label>
           <input type="text" value={} onChange={} /> */}
           &nbsp;&nbsp;<span>Welcome, {user.name}</span>
-          {/* &nbsp;&nbsp;<Link to="/profile">Profile</Link> */}
-          {/* &nbsp;&nbsp;<Link to="/upload">Upload</Link> */}
+          &nbsp;&nbsp;<Link to="/home">Home</Link>
+          &nbsp;&nbsp;<Link to="/profile">Profile</Link>
+          &nbsp;&nbsp;<Link to="/upload">Upload</Link>
           &nbsp;&nbsp;<Link onClick={handleLogOut} to="">Log Out</Link>
         </div>  
       }
