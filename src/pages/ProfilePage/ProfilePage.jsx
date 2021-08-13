@@ -1,6 +1,8 @@
 import * as uploadsAPI from '../../utilities/uploads-api'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Tabs from 'react-bootstrap/Tabs'
+
 import UploadCard from '../../components/UploadCard/UploadCard';
 
 export default function Profile({ user, setUser }) {
@@ -17,15 +19,18 @@ export default function Profile({ user, setUser }) {
             <Link>Following</Link>
             <Link>Followers</Link>
             <Link>Likes</Link>
-            <button>Edit Profile</button>
-            <button><i className="fas fa-bookmark"></i></button>
-            <Link>Add Bio</Link>
-            <li><i className="fas fa-film"></i>
+            <Link>
+                <button>Edit Profile</button>
+            </Link>
+            <Link>
+                <button><i className="fas fa-bookmark"></i></button>
+            </Link>
+            <Tabs><i className="fas fa-film"></i>
             <section className="flex-ctr-ctr">
                 {uploads.map(v => <UploadCard upload={v} key={v._id} />)}
             </section>
-            </li>
-            <li><i className="fas fa-star"></i></li>
+            </Tabs>
+            <Tabs><i className="fas fa-star"></i></Tabs>
         </div>
     )
 }
