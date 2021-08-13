@@ -23,3 +23,7 @@ export async function updateComments(uploadId, commentId) {
 export async function deleteComments(uploadId, commentId) {
   return sendRequest(`${BASE_URL}/${uploadId}/comment/delete/${commentId}`, 'DELETE');
 }
+
+export async function followUser(userId) {
+  return sendRequest('/api/follows', 'POST', {userId: userId});
+}

@@ -1,5 +1,6 @@
 .UploadCard {
     width: 70vw;
+    position: relative;
 }
 
 .UploadCard > img, .UploadCard > video {
@@ -8,8 +9,19 @@
 
 .UploadCard div {
     font-size: medium;
-    background-color: purple;
-    color: whitesmoke;
     width: 100%;
-    padding: 2vmin;
+}
+
+.UploadCard .uploadinfo {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: auto;
+    color: whitesmoke;
+}
+
+.UploadCard .uploadinfo > div {
+    margin-top: .4rem;
 }

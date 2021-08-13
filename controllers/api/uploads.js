@@ -7,7 +7,8 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const uploads = await Upload.find({}).sort('-createdAt').exec();
+  const uploads = await Upload.find({}).sort('-createdAt').populate('user', 'name').exec();
+  console.log(uploads);
   res.json(uploads);
 }
 
@@ -22,7 +23,8 @@ async function upload(req, res) {
         url: uploadURL,
         // As usual, other inputs sent with the file are available on req.body
         title: req.body.title,
-        isVideo: req.file.mimetype.startsWith('video')
+        isVideo: req.file.mimetype.startsWith('video'),
+        user: req.user._id,
       });
       res.json(uploadDoc);
     } else {
