@@ -17,7 +17,8 @@ export default function UploadCard({ upload }) {
           <div>{upload.title}</div>
           <div>@{upload.user.name}</div>
           <div><button onClick={handleFollow}>follow</button></div>
-          <div><i class="fas fa-heart"></i></div>
+          <div><i className="fas fa-heart"></i></div>
+          <div><i className="fas fa-thumbs-up"></i></div>
         </div>
       </article>
     );

@@ -2,12 +2,15 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../../models/user');
 const Category = require('../../models/category');
-
+const Follow = require('../../models/follow');
+const Upload = require('../../models/upload');
+const Like = require('../../models/like');
 
 module.exports = {
   create,
   login, 
-  checkToken
+  checkToken,
+  getProfile
 };
 
 async function login(req, res) {
@@ -49,6 +52,24 @@ function checkToken(req, res) {
   res.json(req.exp);
 }
 
+async function getProfile(req, res) {
+  const following = await Follow.find({follower: req.user._id}).populate('following', 'name').exec();
+  const followers = await Follow.find({following: req.user._id}).populate('follower', 'name').exec();
+  const uploads = await Upload.find({user: req.user._id});
+  let likeCount = 0
+  uploads.forEach(async (upload) => {
+    const likes = await Like.find({upload: upload._id});
+    likeCount += likes.length;
+  }); 
+  console.log(likeCount);
+  res.json({
+    following, 
+    followers,
+    uploads,
+    likeCount,
+  })
+}
+
 /*-- Helper Functions --*/
 
 function createJWT(user) {
@@ -59,3 +80,4 @@ function createJWT(user) {
     { expiresIn: '24h' }
   );
 }
+

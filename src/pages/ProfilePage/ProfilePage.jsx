@@ -1,4 +1,4 @@
-import * as uploadsAPI from '../../utilities/uploads-api'
+import * as usersAPI from '../../utilities/users-api'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import UploadCard from '../../components/UploadCard/UploadCard';
@@ -8,10 +8,22 @@ export default function Profile({ user, setUser }) {
     const [title, setTitle] = useState('');
     const [uploads, setUploads] = useState([]);
     const [activeTab, setActiveTab] = useState(0);
+    const [userProfile, setUserProfile] = useState({
+        following: [],
+        followers: [],
+        uploads: [],
+        likeCount: 0
+    });
 
     useEffect(function () {
-        uploadsAPI.getAll().then(uploads => setUploads(uploads));
+        async function fetchProfile() {
+            const profile = await usersAPI.getProfile();
+            console.log(profile)
+            setUserProfile(profile);
+        }
+        fetchProfile();
     }, []);
+
     return (
         <div className="ProfilePage">
             <div></div>
@@ -43,7 +55,7 @@ export default function Profile({ user, setUser }) {
 
             { activeTab === 0 && 
                 <section className="flex-ctr-ctr">
-                    {uploads.map(v => <UploadCard upload={v} key={v._id} />)}
+                    {userProfile.uploads.map(v => <UploadCard upload={v} key={v._id} />)}
                 </section>
             }
 
