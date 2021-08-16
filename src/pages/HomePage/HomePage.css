@@ -1,0 +1,26 @@
+.HomePage ul.link {
+    position: relative;
+    margin: 10vmin 0 5vmin;
+    padding-left: 0;
+    list-style: none;
+}
+
+.HomePage ul.link > li {
+    position: absolute;
+    display: inline-block;
+    margin: 0 .5vmin;
+    padding: .5vmin;
+    bottom: -5px;
+}
+
+.HomePage ul.link > li:nth-child(1) {
+    margin-left: 0;
+}
+
+.HomePage ul.link > li:nth-child(2) {
+    margin-left: 10vw;
+}
+
+.HomePage ul.link > li:nth-child(3) {
+    margin-left: 20vw;
+}

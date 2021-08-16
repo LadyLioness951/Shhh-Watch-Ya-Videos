@@ -27,7 +27,7 @@ export default function Profile({ user, setUser }) {
     return (
         <div className="ProfilePage">
             <div></div>
-            <h4></h4>
+            <h4>Profile Pic</h4>
             <Link>Following</Link>
             &nbsp;&nbsp;
             <Link>Followers</Link>

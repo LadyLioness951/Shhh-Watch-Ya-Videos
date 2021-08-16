@@ -1,4 +1,5 @@
 import * as uploadAPI from '../../utilities/uploads-api';
+import Comment from '../Comments/Comments';
 import './UploadCard.css';
 
 export default function UploadCard({ upload }) {
@@ -19,7 +20,9 @@ export default function UploadCard({ upload }) {
           <div><button onClick={handleFollow}>follow</button></div>
           <div><i className="fas fa-heart"></i></div>
           <div><i className="fas fa-thumbs-up"></i></div>
+          <div><i class="fas fa-share"></i></div>
         </div>
+        <Comment />
       </article>
     );
 } 

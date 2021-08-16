@@ -14,6 +14,10 @@ export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
 
+export function getHome() {
+  return sendRequest(`${BASE_URL}/home`);
+}
+
 export function getProfile() {
   return sendRequest(`${BASE_URL}/profile`);
 }

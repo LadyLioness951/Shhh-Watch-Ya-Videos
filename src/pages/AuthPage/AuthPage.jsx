@@ -46,7 +46,7 @@ export default function AuthPage({ setUser }) {
       const user = await signUp(newFormData);
       console.log(user);
       await setUser(user);
-      history.push('/profile')
+      history.push('/home')
     } catch {
       // An error occurred
       setFormData({ error: 'Sign Up Failed - Try Again' });
