@@ -9,5 +9,6 @@ router.get('/', uploadsCtrl.index);
 // POST /api/photos/upload
 router.post('/', upload.single('upload'), uploadsCtrl.upload);
 // The 'photo' maps to the name used when adding the input to the FormData object
+router.get('/forYou', uploadsCtrl.getForYouVideos);
 
 module.exports = router;

@@ -3,17 +3,30 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import UploadCard from '../../components/UploadCard/UploadCard';
 import './ProfilePage.css';
+import { set } from 'mongoose';
 
 export default function Profile({ user, setUser }) {
     const [title, setTitle] = useState('');
     const [uploads, setUploads] = useState([]);
     const [activeTab, setActiveTab] = useState(0);
+    const [showFollowing, setShowFollowing] = useState(false)
+    const [showFollowers, setShowFollowers] = useState(false)
     const [userProfile, setUserProfile] = useState({
         following: [],
         followers: [],
         uploads: [],
         likeCount: 0
     });
+
+    function handleShowFollowers() {
+        setShowFollowers(!showFollowers)
+        setShowFollowing(false) 
+    }
+    
+    function handleShowFollowing() {
+        setShowFollowing(!showFollowing)
+        setShowFollowers(false)
+    }
 
     useEffect(function () {
         async function fetchProfile() {
@@ -28,11 +41,20 @@ export default function Profile({ user, setUser }) {
         <div className="ProfilePage">
             <div></div>
             <h4>Profile Pic</h4>
-            <Link>Following</Link>
+            <div>
+                {userProfile.following.length}
+                <Link onClick={handleShowFollowing}>Following</Link>
+            </div>
             &nbsp;&nbsp;
-            <Link>Followers</Link>
+            <div>
+                {userProfile.followers.length}
+                <Link onClick={handleShowFollowers}>Followers</Link>
+            </div>
             &nbsp;&nbsp;
-            <Link>Likes</Link>
+            <div>
+                {userProfile.likeCount}
+                <Link>Likes</Link>
+            </div>
             &nbsp;&nbsp;
             <Link>
                 <button>Edit Profile</button>
@@ -41,6 +63,16 @@ export default function Profile({ user, setUser }) {
             <Link>
                 <button><i className="fas fa-bookmark"></i></button>
             </Link>
+            <div>
+                {
+                    showFollowing && userProfile.following.map(follow => <p>{follow.following.name}</p>)
+                }
+            </div>
+            <div>
+                {
+                    showFollowers && userProfile.followers.map(follow => <p>{follow.follower.name}</p>)
+                }
+            </div>
 
             <ul className="tabs">
                 <li 

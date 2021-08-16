@@ -1,4 +1,3 @@
-import * as usersAPI from '../../utilities/users-api';
 import * as uploadsAPI from '../../utilities/uploads-api'
 import { useState, useEffect } from 'react';
 import UploadCard from '../../components/UploadCard/UploadCard';
@@ -20,8 +19,9 @@ export default function HomePage({ user, setUser }) {
     
     useEffect(function () {
         async function fetchHome() {
-            const home = await usersAPI.getHome();
-            setUserHome(home);
+            const forYou = await uploadsAPI.getForYouVideos();
+            console.log(forYou);
+            setUserHome({...userHome, forYou: forYou});
         }
         fetchHome();
     }, []);

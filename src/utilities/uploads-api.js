@@ -27,3 +27,11 @@ export async function deleteComments(uploadId, commentId) {
 export async function followUser(userId) {
   return sendRequest('/api/follows', 'POST', {userId: userId});
 }
+
+export async function getCategories() {
+  return sendRequest('/api/categories');
+}
+
+export async function getForYouVideos() {
+  return sendRequest(`${BASE_URL}/forYou`)
+}
