@@ -1,0 +1,29 @@
+.BookmarkPage ul.tabs {
+    position: relative;
+    margin: 10vmin 0 5vmin;
+    padding-left: 0;
+    list-style: none;
+    border-bottom: 3px solid gray;
+}
+
+.BookmarkPage ul.tabs > li {
+    position: absolute;
+    bottom: -3px;
+    left: 5vmin;
+    display: inline-block;
+    margin: 0 .5vmin;
+    padding: .5vmin;
+    width: 15vw;
+    border: 3px solid gray;  
+    z-index: 1;
+    border-top-left-radius: 1vmin;
+    border-top-right-radius: 1vmin;
+}
+
+.BookmarkPage ul.tabs > li:nth-child(2) {
+    margin-left: 16vw;
+}
+
+h1 {
+    text-align: center;
+}

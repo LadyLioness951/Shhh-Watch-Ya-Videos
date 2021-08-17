@@ -1,28 +1,33 @@
-/* body {
+body {
     background-color: black;
     color: blue;
-} */
+}
 
 .uploadPage {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20vmin;
+    margin-top: 15vmin;
     background-color: black;
     color: blue;  
 }
 
+.file {
+    margin-left: 153px;
+}
+
 .uploadPage div.title {
     margin-top: 2vmin;
+    margin-left: 80px;
 }
 
 .uploadPage div.cat {
-    display: inline-block;
     margin: 2vmin;
 }
 
 .uploadPage div.cat p {
-    text-align: left;
+    display: inline;
+    word-wrap: break-word;
     color: blue;
 }

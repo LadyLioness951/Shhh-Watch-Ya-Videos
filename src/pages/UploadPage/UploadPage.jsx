@@ -1,11 +1,13 @@
 import * as uploadsAPI from '../../utilities/uploads-api';
 import { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import './UploadPage.css';
 
 export default function UploadPage() {
     const [title, setTitle] = useState('');
     const [categories, setCategories] = useState([]);
     const [uploadCategories, setUploadCategories] = useState([]);
+    const history = useHistory();
     // Use a ref prop on the <input> in the JSX to
     // create a reference to the <input>, i.e.,
     // inputRef.current will be the <input> DOM element
@@ -34,6 +36,7 @@ export default function UploadPage() {
       // setUploads([newUpload, ...uploads]);
       // Clear the description and file inputs
       setTitle('');
+      // history.push('/home');
       fileInputRef.current.value = '';
     }
 
@@ -44,11 +47,17 @@ export default function UploadPage() {
     return (
         <div className="uploadPage">
             <section className="flex-ctr-ctr">
-                <input type="file" ref={fileInputRef} />
+                <input className="file" type="file" ref={fileInputRef} />
                 <div className="title">
                   Title: <input value={title} onChange={(evt) => setTitle(evt.target.value)} />
                 </div>
                 <div className="cat">
+                <p className="description">To select multiple categories:</p>
+                    <p>On Mac: Hold down command and select the categories you want.</p> 
+                    <p>On Windows: Hold down shift and select the 1st and last category if you want multiple in a row,
+                                otherwise hold down control and select the categories you want.</p> 
+                    <p>On Linux: Hold down control and select the categories you want. 
+                  </p>
                   Categories: <select name="categories" multiple onChange={handleCategories}>
                     {
                       categories.map((category) => (
@@ -56,12 +65,6 @@ export default function UploadPage() {
                       ))
                     }
                   </select>
-                  <p className="description">To select multiple categories:</p>
-                    <p>On Mac: Hold down command and select the categories you want.</p> 
-                    <p>On Windows: Hold down shift and select the 1st and last category if you want multiple in a row,
-                                otherwise hold down control and select the categories you want.</p> 
-                    <p>On Linux: Hold down control and select the categories you want. 
-                  </p>
                 </div>
                 <button className="btn" onClick={handleUpload}>Upload Video</button>
             </section>

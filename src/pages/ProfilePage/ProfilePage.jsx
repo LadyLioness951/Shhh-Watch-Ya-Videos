@@ -1,6 +1,8 @@
 import * as usersAPI from '../../utilities/users-api'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// import BookmarkPage from '../BookmarkPage/BookmarkPage';
+// import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import UploadCard from '../../components/UploadCard/UploadCard';
 import './ProfilePage.css';
 
@@ -72,11 +74,11 @@ export default function Profile({ user, setUser }) {
 
             <ul className="tabs">
                 <li 
-                    style={{borderBottom: activeTab === 0 && '3px solid white'}}
+                    style={{borderBottom: activeTab === 0 && '3px solid black'}}
                     onClick={() => setActiveTab(0)}
                 ><i className="fas fa-film"></i></li>
                 <li 
-                    style={{borderBottom: activeTab === 1 && '3px solid white'}}
+                    style={{borderBottom: activeTab === 1 && '3px solid black'}}
                     onClick={() => setActiveTab(1)}    
                 ><i className="fas fa-star"></i></li>
             </ul>
@@ -93,6 +95,12 @@ export default function Profile({ user, setUser }) {
                     <h1>Videos I Like</h1>
                 </section>
             }
+            {/* <Route path="">
+                <EditProfilePage />
+            </Route>
+            <Route>
+                <BookmarkPage />
+            </Route> */}
         </div>
     )
 }
