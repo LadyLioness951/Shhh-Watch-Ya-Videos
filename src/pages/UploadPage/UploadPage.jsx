@@ -36,8 +36,8 @@ export default function UploadPage() {
       // setUploads([newUpload, ...uploads]);
       // Clear the description and file inputs
       setTitle('');
-      // history.push('/home');
       fileInputRef.current.value = '';
+      history.push('/home');
     }
 
     function handleCategories(evt){
@@ -52,19 +52,23 @@ export default function UploadPage() {
                   Title: <input value={title} onChange={(evt) => setTitle(evt.target.value)} />
                 </div>
                 <div className="cat">
-                <p className="description">To select multiple categories:</p>
+                  <div>
+                    <p className="description">To select multiple categories:</p>
                     <p>On Mac: Hold down command and select the categories you want.</p> 
                     <p>On Windows: Hold down shift and select the 1st and last category if you want multiple in a row,
                                 otherwise hold down control and select the categories you want.</p> 
                     <p>On Linux: Hold down control and select the categories you want. 
-                  </p>
-                  Categories: <select name="categories" multiple onChange={handleCategories}>
-                    {
-                      categories.map((category) => (
-                        <option value={category._id}>{category.name}</option>
-                      ))
-                    }
-                  </select>
+                    </p>
+                  </div>
+
+                  <label> Categories: <select name="categories" multiple onChange={handleCategories}>
+                      {
+                        categories.map((category) => (
+                          <option value={category._id}>{category.name}</option>
+                        ))
+                      }
+                    </select>
+                  </label>
                 </div>
                 <button className="btn" onClick={handleUpload}>Upload Video</button>
             </section>

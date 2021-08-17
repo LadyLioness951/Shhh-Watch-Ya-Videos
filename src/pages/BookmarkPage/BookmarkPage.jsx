@@ -1,9 +1,26 @@
+import * as usersAPI from '../../utilities/users-api';
+import * as uploadsAPI from '../../utilities/uploads-api';
+import { useState, useEffect } from 'react';
 import UploadCard from "../../components/UploadCard/UploadCard";
-import { useState } from 'react';
 import './BookmarkPage.css';
 
 export default function BookmarkPage() {
     const [activeTab, setActiveTab] = useState(0);
+    const [userBookmark, setUserBookmark] = useState({
+        favoritedVideos: [],
+        hashtags: [],
+        sounds: [],
+        effects: []
+    })
+
+    useEffect(function () {
+        async function fetchBookmark() {
+            const bookmark = await usersAPI.getBookmark();
+            setUserBookmark({...userBookmark, favoritedVideos: bookmark.favorites});
+            console.log(bookmark);
+        }
+        fetchBookmark();
+    }, []);
 
     return (
         <div className="BookmarkPage">
@@ -28,7 +45,7 @@ export default function BookmarkPage() {
             </ul>
             { activeTab === 0 &&
                 <section>
-                    {uploads.map(v => <UploadCard upload={v} key={v._id} />)}
+                    {userBookmark.favoritedVideos.map(v => <UploadCard upload={v.upload} key={v._id} />)}
                 </section>
             }
             { activeTab === 1 &&

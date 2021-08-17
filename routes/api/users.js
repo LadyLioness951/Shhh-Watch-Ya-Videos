@@ -9,5 +9,7 @@ router.post('/login', usersCtrl.login);
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 router.get('/profile', ensureLoggedIn, usersCtrl.getProfile);
+router.get('/bookmark', ensureLoggedIn, usersCtrl.getBookmark);
+router.get('/editprofile', ensureLoggedIn, usersCtrl.editProfile);
 
 module.exports = router;

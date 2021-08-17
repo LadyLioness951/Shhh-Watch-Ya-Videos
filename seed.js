@@ -18,6 +18,7 @@ const Hashtag = require('./models/hashtag');
         {name: 'Funny'},
         {name: 'Gaming'},
         {name: 'Goofy'},
+        {name: 'Music'},
         {name: 'Pranks'},
         {name: 'Sports'},
         {name: 'Other'}

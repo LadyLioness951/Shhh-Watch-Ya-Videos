@@ -1,8 +1,7 @@
-import * as usersAPI from '../../utilities/users-api'
+import * as usersAPI from '../../utilities/users-api';
+import * as uploadsAPI from '../../utilities/uploads-api';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import BookmarkPage from '../BookmarkPage/BookmarkPage';
-// import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import UploadCard from '../../components/UploadCard/UploadCard';
 import './ProfilePage.css';
 
@@ -14,6 +13,7 @@ export default function Profile({ user, setUser }) {
         following: [],
         followers: [],
         uploads: [],
+        likedVideos: [],
         likeCount: 0
     });
 
@@ -30,7 +30,8 @@ export default function Profile({ user, setUser }) {
     useEffect(function () {
         async function fetchProfile() {
             const profile = await usersAPI.getProfile();
-            setUserProfile(profile);
+            const likedVideos = await uploadsAPI.getLikedVideos();
+        setUserProfile({...profile, likedVideos: likedVideos});
         }
         fetchProfile();
     }, []);
@@ -54,11 +55,11 @@ export default function Profile({ user, setUser }) {
                 <Link>Likes</Link>
             </div>
             &nbsp;&nbsp;
-            <Link>
+            <Link to="/editprofile">
                 <button>Edit Profile</button>
             </Link>
             &nbsp;
-            <Link>
+            <Link to="/bookmark">
                 <button><i className="fas fa-bookmark"></i></button>
             </Link>
             <div>
@@ -90,17 +91,10 @@ export default function Profile({ user, setUser }) {
             }
 
             { activeTab === 1 && 
-                <section className="flex-ctr-ctr">
-                    {/* {userProfile.likes.uploads.map(v => <UploadCard upload={v} key={v._id} />)}} */}
-                    <h1>Videos I Like</h1>
+               <section className="flex-ctr-ctr">
+                    {userProfile.likedVideos.map(v => <UploadCard upload={v} key={v._id} />)}
                 </section>
             }
-            {/* <Route path="">
-                <EditProfilePage />
-            </Route>
-            <Route>
-                <BookmarkPage />
-            </Route> */}
         </div>
     )
 }

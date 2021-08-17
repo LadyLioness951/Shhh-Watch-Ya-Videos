@@ -21,3 +21,7 @@ export function getHome() {
 export function getProfile() {
   return sendRequest(`${BASE_URL}/profile`);
 }
+
+export function getBookmark() {
+  return sendRequest(`${BASE_URL}/bookmark`)
+}

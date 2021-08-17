@@ -30,8 +30,8 @@ const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/hashtags', ensureLoggedIn, require('./routes/api/hashtags'));
 app.use('/api/uploads', ensureLoggedIn, require('./routes/api/uploads'));
 app.use('/', require('./routes/api/likes'));
-app.use('/api/comments', require('./routes/api/comments'));
-// app.use('/api/favorites', require('./routes/api/favorites'));
+app.use('/', require('./routes/api/comments'));
+app.use('/', require('./routes/api/favorites'));
 app.use('/api/follows', require('./routes/api/follows'));
 
 

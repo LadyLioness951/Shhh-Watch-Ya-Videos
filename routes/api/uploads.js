@@ -10,5 +10,7 @@ router.post('/', upload.single('upload'), uploadsCtrl.upload);
 // The 'photo' maps to the name used when adding the input to the FormData object
 router.get('/forYou', uploadsCtrl.getForYouVideos);
 router.get('/followVid', uploadsCtrl.userVideosIFollow);
+router.get('/likedVideos', uploadsCtrl.getLikedVideos);
+router.get('/favoritedVideos', uploadsCtrl.getFavoritedVideos);
 
 module.exports = router;

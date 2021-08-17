@@ -1,36 +1,46 @@
 import * as uploadAPI from '../../utilities/uploads-api';
+import { useState } from 'react';
 import Comment from '../Comments/Comments';
 import './UploadCard.css';
 
 export default function UploadCard({ upload }) {
+  const [video, setVideo] = useState(upload);
   async function handleFollow() {
     await uploadAPI.followUser(upload.user._id);
   }
 
+  async function handleLike() {
+    await uploadAPI.createLike(upload._id);
+  } 
+
+  async function handleFavorite() {
+    await uploadAPI.createFavorite(upload._id);
+  } 
+
     return (
       <article className="UploadCard">
-        {upload.isVideo ? 
-          <video src={upload.url} autoPlay muted controls alt={upload.title} />
+        {video.isVideo ? 
+          <video src={video.url} autoPlay muted controls alt={video.title} />
           :
-          <img src={upload.url} alt={upload.title} />
+          <img src={video.url} alt={video.title} />
         }
         <div className="uploadinfo">
-          <div>{upload.title}</div>
-          <div>@{upload.user.name}</div>
+          <div>{video.title}</div>
+          <div>@{video.user.name}</div>
           <div><button onClick={handleFollow}>follow</button></div>
-          <div><i className="fas fa-heart"></i></div>
-          <div><i className="fas fa-thumbs-up"></i></div>
-          <div><i class="fas fa-share"></i></div>
+          <div><i onClick={handleFavorite} className="fas fa-heart"></i></div>
+          <div><i onClick={handleLike} className="fas fa-thumbs-up"></i></div>
+          <div><i className="fas fa-share"></i></div>
         </div>
         <div className="Comment">
-          {/* {
-            thisUpload.comments && thisUpload.comments.map((c) => (
+          {
+            video.comments && video.comments.map((c) => (
               <div className="commentBox">
                 <p>{c.content}</p>
               </div>
             ))
-          } */}
-          <Comment />
+          }
+          <Comment upload={video} setUpload={setVideo} />
         </div>
       </article>
     );

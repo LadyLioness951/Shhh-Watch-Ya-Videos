@@ -13,15 +13,11 @@ export function upload(formData) {
 }
 
 export async function createComments(data, uploadId) {
-  return sendRequest(`${BASE_URL}/${uploadId}/comment/create/`, 'POST', data);
+  return sendRequest(`${BASE_URL}/${uploadId}/comments`, 'POST', data);
 }
 
-export async function updateComments(uploadId, commentId) {
-  return sendRequest(`${BASE_URL}/${uploadId}/comment/update/${commentId}`, 'UPDATE');
-}
-
-export async function deleteComments(uploadId, commentId) {
-  return sendRequest(`${BASE_URL}/${uploadId}/comment/delete/${commentId}`, 'DELETE');
+export async function deleteComments(commentId) {
+  return sendRequest(`/api/comments/${commentId}`, 'DELETE');
 }
 
 export async function followUser(userId) {
@@ -33,9 +29,25 @@ export async function getCategories() {
 }
 
 export async function getForYouVideos() {
-  return sendRequest(`${BASE_URL}/forYou`)
+  return sendRequest(`${BASE_URL}/forYou`);
 }
 
-// export async function userVideosIFollow() {
-//   return sendRequest(`${BASE_URL}/followVid`)
-// }
+export async function userVideosIFollow() {
+  return sendRequest(`${BASE_URL}/followVid`);
+}
+
+export async function getLikedVideos() {
+  return sendRequest(`${BASE_URL}/likedVideos`);
+}
+
+export async function createLike(id) {
+  return sendRequest(`${BASE_URL}/${id}/likes`, 'POST');
+}
+
+export async function getFavoritedVideos() {
+  return sendRequest(`${BASE_URL}/favoritedVideos`);
+}
+
+export async function createFavorite(id) {
+  return sendRequest(`${BASE_URL}/${id}/favorites`, 'POST');
+}

@@ -13,7 +13,7 @@ export default function HomePage({ user, setUser }) {
     
     useEffect(function () {
         async function fetchHome() {
-            const following = await uploadsAPI.getForYouVideos();
+            const following = await uploadsAPI.userVideosIFollow();
             const forYou = await uploadsAPI.getForYouVideos();
             setUserHome({...userHome, forYou: forYou, following: following});
         }

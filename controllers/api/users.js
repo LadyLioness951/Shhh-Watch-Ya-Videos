@@ -5,12 +5,15 @@ const Category = require('../../models/category');
 const Follow = require('../../models/follow');
 const Upload = require('../../models/upload');
 const Like = require('../../models/like');
+const Favorite = require('../../models/favorite');
 
 module.exports = {
   create,
   login, 
   checkToken,
-  getProfile
+  getProfile,
+  getBookmark,
+  editProfile,
 };
 
 async function login(req, res) {
@@ -61,13 +64,21 @@ async function getProfile(req, res) {
     const likes = await Like.find({upload: upload._id});
     likeCount += likes.length;
   }); 
-  console.log(likeCount);
   res.json({
     following, 
     followers,
     uploads,
     likeCount,
   })
+}
+
+async function getBookmark(req, res) {
+  const favorites = await Favorite.find({user: req.user._id}).populate('upload').exec();
+  res.json({favorites})
+}
+
+async function editProfile(req, res) {
+  
 }
 
 /*-- Helper Functions --*/

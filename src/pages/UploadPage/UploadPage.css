@@ -23,11 +23,18 @@ body {
 }
 
 .uploadPage div.cat {
+    display: flex;
+    align-items: center;
     margin: 2vmin;
+    text-align: left;
+    width: 40%;
+
 }
 
 .uploadPage div.cat p {
-    display: inline;
-    word-wrap: break-word;
     color: blue;
+}
+
+.uploadPage div.cat label {
+    margin-left: 2rem;
 }

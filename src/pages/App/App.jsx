@@ -8,6 +8,8 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import NavBar from '../../components/NavBar/NavBar';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import UploadPage from '../UploadPage/UploadPage';
+import BookmarkPage from '../BookmarkPage/BookmarkPage';
+import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import './App.css';
 
 export default function App() {
@@ -34,6 +36,12 @@ export default function App() {
         </Route>
         <Route path="/upload">
           <UploadPage />
+        </Route>
+        <Route path="/editprofile">
+          <EditProfilePage />
+        </Route>
+        <Route path="/bookmark">
+          <BookmarkPage />
         </Route>
         <Redirect to="/" />
       </Switch>

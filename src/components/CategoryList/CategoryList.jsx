@@ -44,6 +44,10 @@ export default function CategoryList({ handleCheckbox, setShowCategory, handleSu
                     Goofy
                 </label>
                 <label>
+                    <input type="checkbox" value="Music" name="Music" />
+                    Music
+                </label>
+                <label>
                     <input type="checkbox" value="Pranks" name="Pranks" />
                     Pranks
                 </label>
