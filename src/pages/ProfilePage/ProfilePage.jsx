@@ -3,11 +3,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import UploadCard from '../../components/UploadCard/UploadCard';
 import './ProfilePage.css';
-import { set } from 'mongoose';
 
 export default function Profile({ user, setUser }) {
-    const [title, setTitle] = useState('');
-    const [uploads, setUploads] = useState([]);
     const [activeTab, setActiveTab] = useState(0);
     const [showFollowing, setShowFollowing] = useState(false)
     const [showFollowers, setShowFollowers] = useState(false)
@@ -31,7 +28,6 @@ export default function Profile({ user, setUser }) {
     useEffect(function () {
         async function fetchProfile() {
             const profile = await usersAPI.getProfile();
-            console.log(profile)
             setUserProfile(profile);
         }
         fetchProfile();
@@ -93,7 +89,8 @@ export default function Profile({ user, setUser }) {
 
             { activeTab === 1 && 
                 <section className="flex-ctr-ctr">
-                    <h1>tab 2</h1>
+                    {/* {userProfile.likes.uploads.map(v => <UploadCard upload={v} key={v._id} />)}} */}
+                    <h1>Videos I Like</h1>
                 </section>
             }
         </div>

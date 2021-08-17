@@ -22,7 +22,16 @@ export default function UploadCard({ upload }) {
           <div><i className="fas fa-thumbs-up"></i></div>
           <div><i class="fas fa-share"></i></div>
         </div>
-        <Comment />
+        <div className="Comment">
+          {/* {
+            thisUpload.comments && thisUpload.comments.map((c) => (
+              <div className="commentBox">
+                <p>{c.content}</p>
+              </div>
+            ))
+          } */}
+          <Comment />
+        </div>
       </article>
     );
 } 

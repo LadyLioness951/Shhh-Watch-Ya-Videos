@@ -1,5 +1,4 @@
 export default function SignUpForm({ formData, handleChange, setShowCategory }) {
-
   // Must override the render method
   // The render method takes the place of 
   // a function component, in that its job

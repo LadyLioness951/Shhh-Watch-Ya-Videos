@@ -4,24 +4,18 @@ import UploadCard from '../../components/UploadCard/UploadCard';
 import './HomePage.css';
 
 export default function HomePage({ user, setUser }) {
-    const [title, setTitle] = useState('');
-    const [uploads, setUploads] = useState([]);
     const [activeLink, setActiveLink] = useState(0);
     const [userHome, setUserHome] = useState({
         live: [],
         following: [],
         forYou: [],
     });
-
-    useEffect(function () {
-        uploadsAPI.getAll().then(uploads => setUploads(uploads));
-    }, []);
     
     useEffect(function () {
         async function fetchHome() {
+            const following = await uploadsAPI.getForYouVideos();
             const forYou = await uploadsAPI.getForYouVideos();
-            console.log(forYou);
-            setUserHome({...userHome, forYou: forYou});
+            setUserHome({...userHome, forYou: forYou, following: following});
         }
         fetchHome();
     }, []);
@@ -35,17 +29,17 @@ export default function HomePage({ user, setUser }) {
             </ul>
             {activeLink === 0 &&
                 <section className="flex-ctr-ctr">
-                    <h2>Live Videos</h2>
+                    <h2>Live Videos Coming &nbsp; 🔜</h2>
                 </section>
             }    
             {activeLink === 1 &&
                 <section className="flex-ctr-ctr">
-                    <h2>videos of peeps I'm following</h2>
+                    {userHome.following.map(v => <UploadCard upload={v} key={v._id} />)}
                 </section>
             }    
             {activeLink === 2 &&
                 <section className="flex-ctr-ctr">
-                    {uploads.map(v => <UploadCard upload={v} key={v._id} />)}
+                    {userHome.forYou.map(v => <UploadCard upload={v} key={v._id} />)}
                 </section>
             }    
         </main>

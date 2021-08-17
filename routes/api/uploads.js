@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const upload = require("multer")();
 const uploadsCtrl = require('../../controllers/api/uploads');
-// const ensureLoggedIn = require('./config/ensureLoggedIn');
 
 // GET /api/photos
 router.get('/', uploadsCtrl.index);
@@ -10,5 +9,6 @@ router.get('/', uploadsCtrl.index);
 router.post('/', upload.single('upload'), uploadsCtrl.upload);
 // The 'photo' maps to the name used when adding the input to the FormData object
 router.get('/forYou', uploadsCtrl.getForYouVideos);
+router.get('/followVid', uploadsCtrl.userVideosIFollow);
 
 module.exports = router;

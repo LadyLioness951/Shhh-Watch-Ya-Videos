@@ -35,3 +35,7 @@ export async function getCategories() {
 export async function getForYouVideos() {
   return sendRequest(`${BASE_URL}/forYou`)
 }
+
+// export async function userVideosIFollow() {
+//   return sendRequest(`${BASE_URL}/followVid`)
+// }

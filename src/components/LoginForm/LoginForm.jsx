@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './LoginForm.css';
 
 export default function LoginForm({ setUser }) {
@@ -8,6 +9,7 @@ export default function LoginForm({ setUser }) {
     password: ''
   });
   const [error, setError] = useState('');
+  const history = useHistory();
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -23,6 +25,7 @@ export default function LoginForm({ setUser }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
+      history.push('/home');
     } catch {
       setError('Log In Failed - Try Again');
     }
@@ -45,3 +48,4 @@ export default function LoginForm({ setUser }) {
       </div>
   );
 }
+

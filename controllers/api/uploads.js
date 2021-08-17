@@ -4,12 +4,12 @@ const Upload = require('../../models/upload');
 module.exports = {
   index,
   upload,
-  getForYouVideos
+  getForYouVideos,
+  userVideosIFollow
 };
 
 async function index(req, res) {
   const uploads = await Upload.find({}).sort('-createdAt').populate('user', 'name').exec();
-  console.log(uploads);
   res.json(uploads);
 }
 
@@ -38,11 +38,26 @@ async function upload(req, res) {
 }
 
 async function getForYouVideos(req, res) {
-  const forYou = [];
-  req.user.categories.forEach(async (cat) => {
-    const uploads = await Upload.find({'categories_id': cat});
-    forYou.push(uploads)
-  })
-  console.log(forYou);
+  const uploads = [];
+  for(let cat of req.user.categories) {
+    const docs = await Upload.find({categories: cat});
+    uploads.push(...docs);
+  }
+  const forYou = uploads.reduce((acc, upload) => {
+    return acc.some(u => u._id.equals(upload._id)) ? acc : [...acc, upload]
+  },[]);
   res.json(forYou);
+}
+
+async function userVideosIFollow(req, res) {
+  const uploads = [];
+  for(let fol of req.user.following) {
+    const docs = await Upload.find({following: fol});
+    uploads.push(...docs);
+  }
+  const followVid = uploads.reduce((acc, upload) => {
+    return acc.some(u => u._id.equals(upload._id)) ? acc : [...acc, upload]
+  },[]);
+  console.log("LOOK HERE", followVid);
+  res.json(followVid);
 }

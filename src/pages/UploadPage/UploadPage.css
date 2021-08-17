@@ -1,0 +1,28 @@
+/* body {
+    background-color: black;
+    color: blue;
+} */
+
+.uploadPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vmin;
+    background-color: black;
+    color: blue;  
+}
+
+.uploadPage div.title {
+    margin-top: 2vmin;
+}
+
+.uploadPage div.cat {
+    display: inline-block;
+    margin: 2vmin;
+}
+
+.uploadPage div.cat p {
+    text-align: left;
+    color: blue;
+}

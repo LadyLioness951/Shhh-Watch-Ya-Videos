@@ -42,19 +42,28 @@ export default function UploadPage() {
     }
 
     return (
-        <div>
+        <div className="uploadPage">
             <section className="flex-ctr-ctr">
                 <input type="file" ref={fileInputRef} />
-                Title: <input value={title} onChange={(evt) => setTitle(evt.target.value)} />
-                <select name="categories" multiple onChange={handleCategories}>
-                  {
-                    categories.map((category) => (
-                      <option value={category._id}>{category.name}</option>
-                    ))
-                  }
-                </select>
-
-                <button onClick={handleUpload}>Upload Video</button>
+                <div className="title">
+                  Title: <input value={title} onChange={(evt) => setTitle(evt.target.value)} />
+                </div>
+                <div className="cat">
+                  Categories: <select name="categories" multiple onChange={handleCategories}>
+                    {
+                      categories.map((category) => (
+                        <option value={category._id}>{category.name}</option>
+                      ))
+                    }
+                  </select>
+                  <p className="description">To select multiple categories:</p>
+                    <p>On Mac: Hold down command and select the categories you want.</p> 
+                    <p>On Windows: Hold down shift and select the 1st and last category if you want multiple in a row,
+                                otherwise hold down control and select the categories you want.</p> 
+                    <p>On Linux: Hold down control and select the categories you want. 
+                  </p>
+                </div>
+                <button className="btn" onClick={handleUpload}>Upload Video</button>
             </section>
         </div>
     )

@@ -20,7 +20,8 @@ const uploadSchema = new Schema({
   isVideo: Boolean,
   comments: [commentSchema],
   user: {type: Schema.Types.ObjectId, ref: 'User'},
-  categories: [{type: Schema.Types.ObjectId, ref: 'User'}]
+  categories: [{type: Schema.Types.ObjectId, ref: 'Category'}],
+  follow: [{type: Schema.Types.ObjectId, ref: 'Follow'}]
 }, {
   timestamps: true,
 });
