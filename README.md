@@ -8,8 +8,6 @@ This app is a place you can upload your videos or watch other peoples videos. Yo
 ![Sign Up](https://i.imgur.com/FnES4X5.png)
 ![Sign Up 2](https://i.imgur.com/N12Q0SI.png)
 ![Login](https://i.imgur.com/QJwr6xG.png)
-![Home]()
-![Profile]()
 
 ## Technologies Used 
 
@@ -20,6 +18,7 @@ This app is a place you can upload your videos or watch other peoples videos. Yo
 * React
 * node.js
 * Heroku
+* AWS S3
 
 ## Getting Started
 [Trello Board Link](https://trello.com/b/icVXsHZF/%F0%9F%A4%AB-watch-yo-%F0%9F%A4%AD)
@@ -33,3 +32,4 @@ This app is a place you can upload your videos or watch other peoples videos. Yo
 * Add bio to profile
 * Add profile picture
 * Add instant messages
+* Add search bar to find people and videos
