@@ -58,7 +58,7 @@ function checkToken(req, res) {
 async function getProfile(req, res) {
   const following = await Follow.find({follower: req.user._id}).populate('following', 'name').exec();
   const followers = await Follow.find({following: req.user._id}).populate('follower', 'name').exec();
-  const uploads = await Upload.find({user: req.user._id});
+  const uploads = await Upload.find({user: req.user._id}).populate('hashtags').exec();
   let likeCount = 0
   uploads.forEach(async (upload) => {
     const likes = await Like.find({upload: upload._id});

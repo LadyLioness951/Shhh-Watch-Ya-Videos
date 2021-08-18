@@ -28,6 +28,10 @@ export async function getCategories() {
   return sendRequest('/api/categories');
 }
 
+export async function getHashtags() {
+  return sendRequest('/api/hashtags');
+}
+
 export async function getForYouVideos() {
   return sendRequest(`${BASE_URL}/forYou`);
 }

@@ -32,6 +32,15 @@ export default function UploadCard({ upload }) {
           <div><i onClick={handleLike} className="fas fa-thumbs-up"></i></div>
           <div><i className="fas fa-share"></i></div>
         </div>
+        <div className="Hashtags">
+          {
+            video.hashtags && video.hashtags.map((h) => (
+              <div>
+                <p>{h.name}</p>
+              </div>
+            ))
+          }
+        </div>
         <div className="Comment">
           {
             video.comments && video.comments.map((c) => (

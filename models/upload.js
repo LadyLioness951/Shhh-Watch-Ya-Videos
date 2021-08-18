@@ -21,6 +21,7 @@ const uploadSchema = new Schema({
   comments: [commentSchema],
   user: {type: Schema.Types.ObjectId, ref: 'User'},
   categories: [{type: Schema.Types.ObjectId, ref: 'Category'}],
+  hashtags: [{type: Schema.Types.ObjectId, ref: 'Hashtag'}],
 }, {
   timestamps: true,
 });

@@ -7,6 +7,8 @@ export default function UploadPage() {
     const [title, setTitle] = useState('');
     const [categories, setCategories] = useState([]);
     const [uploadCategories, setUploadCategories] = useState([]);
+    const [hashtags, setHashtags] = useState([]);
+    const [uploadHashtags, setUploadHashtags] = useState([]);
     const history = useHistory();
     // Use a ref prop on the <input> in the JSX to
     // create a reference to the <input>, i.e.,
@@ -18,7 +20,9 @@ export default function UploadPage() {
     useEffect(function() {
       async function fetchCategories() {
         const categories = await uploadsAPI.getCategories();
+        const hashtags = await uploadsAPI.getHashtags();
         setCategories(categories);
+        setHashtags(hashtags);
       }
       fetchCategories();
     }, []);
@@ -31,7 +35,8 @@ export default function UploadPage() {
       const formData = new FormData();
       formData.append('title', title);
       formData.append('upload', fileInputRef.current.files[0]);
-      formData.append('categories', uploadCategories)
+      formData.append('categories', uploadCategories);
+      formData.append('hashtags', uploadHashtags);
       const newUpload = await uploadsAPI.upload(formData);
       // setUploads([newUpload, ...uploads]);
       // Clear the description and file inputs
@@ -42,6 +47,10 @@ export default function UploadPage() {
 
     function handleCategories(evt){
       setUploadCategories(Array.from(evt.target.selectedOptions, (item) => item.value))
+    }
+
+    function handleHashtags(evt){
+      setUploadHashtags(Array.from(evt.target.selectedOptions, (item) => item.value))
     }
 
     return (
@@ -61,10 +70,20 @@ export default function UploadPage() {
                     </p>
                   </div>
 
-                  <label> Categories: <select name="categories" multiple onChange={handleCategories}>
+                  <label> Categories: 
+                    <select name="categories" multiple onChange={handleCategories}>
                       {
                         categories.map((category) => (
                           <option value={category._id}>{category.name}</option>
+                        ))
+                      }
+                    </select>
+                  </label>
+                  <label> Hashtags: 
+                    <select name="hashtags" multiple onChange={handleHashtags}>
+                      {
+                        hashtags.map((hashtag) => (
+                          <option value={hashtag._id}>{hashtag.name}</option>
                         ))
                       }
                     </select>

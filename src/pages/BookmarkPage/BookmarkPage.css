@@ -24,6 +24,14 @@
     margin-left: 16vw;
 }
 
+.BookmarkPage ul.tabs > li:nth-child(3) {
+    margin-left: 32vw;
+}
+
+.BookmarkPage ul.tabs > li:nth-child(4) {
+    margin-left: 48vw;
+}
+
 h1 {
     text-align: center;
 }
