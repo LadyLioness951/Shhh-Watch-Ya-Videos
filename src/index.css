@@ -9,3 +9,8 @@
   align-items: center;
 }
 
+body {
+  background-color: black;
+  color: blue;
+  font-family: 'Black Ops One', cursive;
+}

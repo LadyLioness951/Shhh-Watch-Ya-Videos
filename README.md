@@ -4,10 +4,11 @@ This app is a place you can upload your videos or watch other peoples videos. Yo
 
 ## Screenshots
 
-![About](https://i.imgur.com/Ge9rJyQ.png)
-![Sign Up](https://i.imgur.com/FnES4X5.png)
-![Sign Up 2](https://i.imgur.com/N12Q0SI.png)
-![Login](https://i.imgur.com/QJwr6xG.png)
+![About](https://i.imgur.com/8R48uf5m.png)
+![Sign Up](https://i.imgur.com/FnES4X5m.png)
+![Sign Up 2](https://i.imgur.com/N12Q0SIm.png)
+![Login](https://i.imgur.com/QJwr6xGm.png)
+![Home](https://i.imgur.com/oDnnbXcm.png)
 
 ## Technologies Used 
 

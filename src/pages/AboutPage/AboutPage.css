@@ -1,5 +1,4 @@
 .about {
-    font-family: 'Cormorant';
     background-image: url(https://media.giphy.com/media/XU0p8JABAr1rG/giphy.gif);
     background-position: center;
     background-size:cover;
@@ -8,6 +7,14 @@
     margin: 0;
 }
 
-h1, p {
+.about h1 {
+    font-family: 'Alfa Slab One', cursive;
+}
+
+.about p {
+    font-family: 'Courgette', cursive;
+}
+
+.about h1, p {
     color: palegreen;
 }
