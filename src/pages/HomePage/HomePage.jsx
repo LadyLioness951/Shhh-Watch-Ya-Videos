@@ -30,6 +30,7 @@ export default function HomePage({ user, setUser }) {
             {activeLink === 0 &&
                 <section className="flex-ctr-ctr">
                     <h2>Live Videos Coming &nbsp; 🔜</h2>
+                    <img src="https://media.giphy.com/media/AHT2uNcI1d2dMiGDOh/giphy.gif" alt="Under Construction" />
                 </section>
             }    
             {activeLink === 1 &&

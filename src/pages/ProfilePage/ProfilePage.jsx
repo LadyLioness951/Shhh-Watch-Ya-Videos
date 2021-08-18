@@ -38,30 +38,37 @@ export default function Profile({ user, setUser }) {
 
     return (
         <div className="ProfilePage">
-            <div></div>
-            <h4>Profile Pic</h4>
             <div>
-                {userProfile.following.length}
-                <Link onClick={handleShowFollowing}>Following</Link>
+                <h4>Profile Pic Coming Soon...</h4>
+                <img width="100" height="100" src="https://media.giphy.com/media/ZXkraFrlIW1D25M6ZJ/giphy.gif"/>
             </div>
-            &nbsp;&nbsp;
-            <div>
-                {userProfile.followers.length}
-                <Link onClick={handleShowFollowers}>Followers</Link>
+            <div className="sublinks">
+                <div>
+                    {userProfile.following.length}
+                    <br />
+                    <Link onClick={handleShowFollowing}>Following</Link>
+                </div>
+                &nbsp;&nbsp;         
+                <div>
+                    {userProfile.followers.length}
+                    <br />
+                    <Link onClick={handleShowFollowers}>Followers</Link>
+                </div>
+                &nbsp;&nbsp;
+                <div>
+                    {userProfile.likeCount}
+                    <br />
+                    <Link>Likes</Link>
+                </div>
+                &nbsp;&nbsp;
+                <Link to="/editprofile">
+                    <button>Edit Profile</button>
+                </Link>
+                &nbsp;
+                <Link to="/bookmark">
+                    <button><i className="fas fa-bookmark"></i></button>
+                </Link>
             </div>
-            &nbsp;&nbsp;
-            <div>
-                {userProfile.likeCount}
-                <Link>Likes</Link>
-            </div>
-            &nbsp;&nbsp;
-            <Link to="/editprofile">
-                <button>Edit Profile</button>
-            </Link>
-            &nbsp;
-            <Link to="/bookmark">
-                <button><i className="fas fa-bookmark"></i></button>
-            </Link>
             <div>
                 {
                     showFollowing && userProfile.following.map(follow => <p>{follow.following.name}</p>)

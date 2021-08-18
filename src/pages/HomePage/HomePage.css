@@ -8,15 +8,22 @@
 .HomePage ul.link > li {
     position: absolute;
     display: inline-block;
-    margin: 0 .5vmin;
+    margin: 0 .5vmin 2vmin;
     padding: .5vmin;
     bottom: -5px;
+    left: 38vmin;
+}
+
+.HomePage ul.link > li:nth-child(1) {
+    position: absolute;
 }
 
 .HomePage ul.link > li:nth-child(2) {
+    position: absolute;
     margin-left: 10vw;
 }
 
 .HomePage ul.link > li:nth-child(3) {
+    position: absolute;
     margin-left: 20vw;
 }

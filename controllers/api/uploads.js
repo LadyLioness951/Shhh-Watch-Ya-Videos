@@ -46,7 +46,7 @@ async function upload(req, res) {
 async function getForYouVideos(req, res) {
   const uploads = [];
   for(let cat of req.user.categories) {
-    const docs = await Upload.find({categories: cat}).populate('user', 'hashtags').exec();
+    const docs = await Upload.find({categories: cat}).sort('-createdAt').populate('user', 'hashtags').exec();
     uploads.push(...docs);
   }
   const forYou = uploads.reduce((acc, upload) => {
@@ -59,7 +59,7 @@ async function userVideosIFollow(req, res) {
   const following = await Follow.find({follower: req.user._id});
   const uploads = [];
   for(let fol of following) {
-    const docs = await Upload.find({user: fol.following}).populate('hashtags').exec();
+    const docs = await Upload.find({user: fol.following}).sort('-createdAt').populate('hashtags').exec();
     uploads.push(...docs);
   }
   const followVid = uploads.reduce((acc, upload) => {
@@ -72,7 +72,7 @@ async function getLikedVideos(req, res) {
   const likes = await Like.find({user: req.user._id});
   const uploads = [];
   for(let like of likes) {
-    const docs = await Upload.find({_id: like.upload}).populate('hashtags').exec();
+    const docs = await Upload.find({_id: like.upload}).sort('-createdAt').populate('hashtags').exec();
     uploads.push(...docs);
   }
   const likedVideos = uploads.reduce((acc, upload) => {
@@ -85,7 +85,7 @@ async function getFavoritedVideos(req, res) {
   const favorites = await Favorite.find({user: req.user._id});
   const uploads = [];
   for(let favorite of favorites) {
-    const docs = await Upload.find({_id: favorite.upload}).populate('hashtags').exec();
+    const docs = await Upload.find({_id: favorite.upload}).sort('-createdAt').populate('hashtags').exec();
     uploads.push(...docs);
   }
   const favoritedVideos = uploads.reduce((acc, upload) => {

@@ -24,3 +24,16 @@
     margin-left: 16vw;
 }
 
+h4 {
+    margin-bottom: 0;
+}
+
+.sublinks {
+    display: inline-flex;
+    flex-direction: inherit;
+    margin: 2vmin;
+}
+
+button {
+    margin-top: 1.8vmin;
+}
