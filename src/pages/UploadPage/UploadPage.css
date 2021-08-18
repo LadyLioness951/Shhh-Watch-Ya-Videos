@@ -9,7 +9,6 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 15vmin;
-    background-color: black;
     color: blue;  
 }
 
@@ -27,7 +26,7 @@ body {
     align-items: center;
     margin: 2vmin;
     text-align: left;
-    width: 40%;
+    width: 50%;
 
 }
 
@@ -37,4 +36,9 @@ body {
 
 .uploadPage div.cat label {
     margin-left: 2rem;
+    height: -5vh;
+}
+
+span {
+    color: blueviolet;
 }

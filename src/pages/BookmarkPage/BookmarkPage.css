@@ -20,18 +20,27 @@
     border-top-right-radius: 1vmin;
 }
 
+.BookmarkPage ul.tabs > li:nth-child(1) {
+    margin-left: -3vw;
+}
+
 .BookmarkPage ul.tabs > li:nth-child(2) {
-    margin-left: 16vw;
+    margin-left: 13vw;
 }
 
 .BookmarkPage ul.tabs > li:nth-child(3) {
-    margin-left: 32vw;
+    margin-left: 29vw;
 }
 
 .BookmarkPage ul.tabs > li:nth-child(4) {
-    margin-left: 48vw;
+    margin-left: 45vw;
 }
 
 h1 {
+    color: blue;
     text-align: center;
+}
+
+.favoriteV {
+    padding: 0 15vmin;
 }

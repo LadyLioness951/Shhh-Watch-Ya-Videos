@@ -44,23 +44,28 @@ export default function BookmarkPage() {
                 >Effects</li>
             </ul>
             { activeTab === 0 &&
-                <section>
+                <section className="favoriteV">
                     {userBookmark.favoritedVideos.map(v => <UploadCard upload={v.upload} key={v._id} />)}
                 </section>
             }
             { activeTab === 1 &&
                 <section>
-                    <h1>Hashtags</h1>
+                    <img width="280" height="270" src="https://media.giphy.com/media/3oz8xwwCKqrFgLPTJC/giphy.gif"/>
+                    <img src="https://media.giphy.com/media/8FuLBRxtL7nwCchUcd/giphy.gif"/>
                 </section>
             }
             { activeTab === 2 &&
                 <section>
-                    <h1>Sounds</h1>
+                    <h3>Sounds Coming Soon...</h3>
+                    <img width="288" height="288" src="https://media.giphy.com/media/g0jZXv94OHEdx5RHm4/giphy.gif"/>
+                    <img width="288" src="https://media.giphy.com/media/lsBYIZnDoDiqyTgubO/giphy.gif"/>
                 </section>
             }
             { activeTab === 3 &&
                 <section>
-                    <h1>Effects</h1>
+                    <h3>Effects Coming Soon...</h3>
+                    <img width="350" height="350" src="https://media.giphy.com/media/l0K46F1aMe6A6z8DC/giphy.gif"/>
+                    <img width="350" height="350" src="https://media.giphy.com/media/l2SqhHPenG6AHjYkw/giphy.gif"/>
                 </section>
             }
         </div>

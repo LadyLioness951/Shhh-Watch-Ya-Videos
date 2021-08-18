@@ -62,14 +62,12 @@ export default function UploadPage() {
                 </div>
                 <div className="cat">
                   <div>
-                    <p className="description">To select multiple categories:</p>
-                    <p>On Mac: Hold down command and select the categories you want.</p> 
-                    <p>On Windows: Hold down shift and select the 1st and last category if you want multiple in a row,
+                    <h3 className="description"><span><strong><em>To select multiple categories:</em></strong></span></h3>
+                    <p><span><strong><u>On Mac:</u></strong></span>&nbsp;Hold down command and select the categories you want.</p> 
+                    <p><span><strong><u>On Windows:</u></strong></span>&nbsp;Hold down shift and select the 1st and last category if you want multiple in a row,
                                 otherwise hold down control and select the categories you want.</p> 
-                    <p>On Linux: Hold down control and select the categories you want. 
-                    </p>
+                    <p><span><strong><u>On Linux:</u></strong></span>&nbsp;Hold down control and select the categories you want.</p>
                   </div>
-
                   <label> Categories: 
                     <select name="categories" multiple onChange={handleCategories}>
                       {
