@@ -71,12 +71,12 @@ export default function Profile({ user, setUser }) {
             </div>
             <div>
                 {
-                    showFollowing && userProfile.following.map(follow => <p>{follow.following.name}</p>)
+                    showFollowing && userProfile.following.map(follow => <h4>{follow.following.name}</h4>)
                 }
             </div>
             <div>
                 {
-                    showFollowers && userProfile.followers.map(follow => <p>{follow.follower.name}</p>)
+                    showFollowers && userProfile.followers.map(follow => <h4>{follow.follower.name}</h4>)
                 }
             </div>
 

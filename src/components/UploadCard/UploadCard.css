@@ -25,3 +25,8 @@
 .UploadCard .uploadinfo > div {
     margin-top: .4rem;
 }
+
+.UploadCard .Hashtags {
+    display: inline-flex;
+    margin-left: 1vmin;
+}

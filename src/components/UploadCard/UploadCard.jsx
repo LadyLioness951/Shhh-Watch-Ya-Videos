@@ -36,7 +36,7 @@ export default function UploadCard({ upload }) {
           {
             video.hashtags && video.hashtags.map((h) => (
               <div>
-                <p>{h.name}</p>
+                <h4>{h.name}</h4>
               </div>
             ))
           }
