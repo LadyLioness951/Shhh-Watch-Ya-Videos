@@ -27,19 +27,19 @@ export default function BookmarkPage() {
             <h1>Favorites</h1>
             <ul className="tabs">
                 <li
-                    style={{borderBottom: activeTab === 0 && '3px solid black'}}
+                    style={{borderBottom: activeTab === 0 && '3px solid rgba(10, 162, 244, 0.975)'}}
                     onClick={() => setActiveTab(0)}
                 >Videos</li>
                 <li
-                    style={{borderBottom: activeTab === 1 && '3px solid black'}}
+                    style={{borderBottom: activeTab === 1 && '3px solid rgba(10, 162, 244, 0.975)'}}
                     onClick={() => setActiveTab(1)}
                 >Hashtags</li>
                 <li
-                    style={{borderBottom: activeTab === 2 && '3px solid black'}}
+                    style={{borderBottom: activeTab === 2 && '3px solid rgba(10, 162, 244, 0.975)'}}
                     onClick={() => setActiveTab(2)}
                 >Sounds</li>
                 <li
-                    style={{borderBottom: activeTab === 3 && '3px solid black'}}
+                    style={{borderBottom: activeTab === 3 && '3px solid rgba(10, 162, 244, 0.975)'}}
                     onClick={() => setActiveTab(3)}
                 >Effects</li>
             </ul>

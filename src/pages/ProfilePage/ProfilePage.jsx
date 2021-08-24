@@ -82,11 +82,11 @@ export default function Profile({ user, setUser }) {
 
             <ul className="tabs">
                 <li 
-                    style={{borderBottom: activeTab === 0 && '3px solid black'}}
+                    style={{borderBottom: activeTab === 0 && '3px solid rgba(10, 162, 244, 0.975)'}}
                     onClick={() => setActiveTab(0)}
                 ><i className="fas fa-film"></i></li>
                 <li 
-                    style={{borderBottom: activeTab === 1 && '3px solid black'}}
+                    style={{borderBottom: activeTab === 1 && '3px solid rgba(10, 162, 244, 0.975)'}}
                     onClick={() => setActiveTab(1)}    
                 ><i className="fas fa-star"></i></li>
             </ul>
